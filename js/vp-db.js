@@ -1,4 +1,21 @@
 define(() => [
+// 430 Addon Packs
+{
+	id			: "Ethan",
+	origin		: "app",
+	title		: "Ethan Payday 2 Pack",
+	shortTitle	: "Ethan Klein",
+	acquiredBy	: "preinstall",
+
+	Fortnite: {
+		kill: ["Test"],
+		knockout: ["How 'Bout Some Help Here"],
+		death: ["Test"],
+		knockedout: ["Test"],
+		match_start: ["Test"],
+		match_end: ["Test"],
+	}
+},
 // Preinstalled packs
 {
 	id			: "Arnold",
@@ -192,22 +209,6 @@ define(() => [
 		knockout: ["God_Like","Hard_Mode","Multi_Kill","Monster_Kill","Welcome_Kill","Kamikaze","Triple_Kill","Decimation","Double_Kill","Easy_Mode","Excellent","Executioner","Fatality","First_Blood","Flyswatter","God_Like","Head_Hunter","Head_Shot","High_Roller","Impressive","Juggernaught","Killing_Spree","Knife_Fight","Lobotomist","Ludicrous_Kill","Marksman","Mega_Kill","Monster_Kill","Multi_Kill","Nice_Things","Outstanding","Pizza_Delivery","Road_Kill","Road_Rage","Sharp_Shooter","Team_Killer","Triple_Kill","Ultra_Kill","Vip_Team_Kill","Wicked_Sick"],
 		death: ["Armored_Assault","Death_Insult","Vip_Kill","Unstoppable","Accuracy","Ace","Being_Farmed","Death_From_Above","Death_Streak","Domination","Holy_Shit","Humiliation","Present","Prevent_FF","Quad_Damage","Rage_Quit","Recursion","Repeat_Customer","Rocket_Primary","Suicide_Bomber","Think_Theyd_Learn","Unstoppable","Vip_Kill","Watch_Your_Step","Whose_Side"],
 		knockedout: ["Armored_Assault","Death_Insult","Vip_Kill","Unstoppable","Accuracy","Ace","Being_Farmed","Death_From_Above","Death_Streak","Domination","Holy_Shit","Humiliation","Present","Prevent_FF","Quad_Damage","Rage_Quit","Recursion","Repeat_Customer","Rocket_Primary","Suicide_Bomber","Think_Theyd_Learn","Unstoppable","Vip_Kill","Watch_Your_Step","Whose_Side"],
-	}
-},
-{
-	id			: "Test",
-	origin		: "app",
-	title		: "Test Pack",
-	shortTitle	: "Test Short Title",
-	acquiredBy	: "preinstall",
-
-	Fortnite: {
-		kill: ["Test"],
-		knockout: ["Test"],
-		death: ["Test"],
-		knockedout: ["Test"],
-		match_start: ["Test"],
-		match_end: ["Test"],
 	}
 },
 {
