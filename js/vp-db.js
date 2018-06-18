@@ -1,5 +1,5 @@
 define(() => [
-// 430 Addon Packs
+// Ethan Klein Payday 2 Voice Pack by Jacket430 (All credit to Ethan Klein and OVERKILL Software)
 {
 	id			: "Ethan",
 	origin		: "app",
