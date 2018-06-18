@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" class="hidden">
+<head>
+	<meta charset="UTF-8">
+
+	<title>Killer Voices</title>
+
+	<link rel="stylesheet" href="css/swiper.css"/>
+	<link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+
+<div id="window-main" class="content">
+	<div class="resize horizontal top" @mousedown="resize('Top')"></div>
+	<div class="resize vertical left" @mousedown="resize('Left')"></div>
+	<div class="resize vertical right" @mousedown="resize('Right')"></div>
+	<div class="resize horizontal bottom" @mousedown="resize('Bottom')"></div>
+
+	<div class="resize corner top-left" @mousedown="resize('TopLeft')"></div>
+	<div class="resize corner top-right" @mousedown="resize('TopRight')"></div>
+	<div class="resize corner bottom-left" @mousedown="resize('BottomLeft')"></div>
+	<div class="resize corner bottom-right" @mousedown="resize('BottomRight')"></div>
+
+	<header class="app-header" @mousedown="drag">
+		<svg class="header-logo">
+			<use xlink:href="img/sprite.svg#header-logo" />
+		</svg>
+
+		<div class="window-controls-group" @mousedown.stop v-if="!closing">
+			<button
+				class="window-control"
+				:class="{active : settingsShown}"
+				@click="settingsShown = !settingsShown"
+			>
+				<svg class="svg-icon-fill">
+					<use xlink:href="img/sprite.svg#window-control_settings" />
+				</svg>
+			</button>
+
+			<button class="window-control tooltip-container">
+				<svg class="svg-icon-fill">
+					<use xlink:href="img/sprite.svg#window-control_support" />
+				</svg>
+
+				<div class="tooltip bottom">
+					<ul>
+						<li><a href="#" @click.prevent="openLink('http://support.overwolf.com/submit-a-request/')">Request support</a></li>
+						<li><a href="#" @click.prevent="openLink('http://support.overwolf.com/article-categories/killer-voices/')">Help center</a></li>
+						<li><a href="#" @click.prevent="openLink('http://support.overwolf.com/knowledge-base/killer-voices-changelog/')">Changelog</a></li>
+					</ul>
+					<svg class="tooltip-arrow">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite.svg#tooltip-arrow"></use>
+					</svg>
+				</div>
+			</button>
+
+			<button class="window-control" @click="minimize">
+				<svg class="svg-icon-fill">
+					<use xlink:href="img/sprite.svg#window-control_minimize" />
+				</svg>
+			</button>
+
+			<button class="window-control" @click="toggleMaximize">
+				<svg class="svg-icon-fill svg-icon-restore" v-if="maximized">
+					<use xlink:href="img/sprite.svg#window-control_restore" />
+				</svg>
+				<svg class="svg-icon-fill svg-icon-maximize" v-else>
+					<use xlink:href="img/sprite.svg#window-control_maximize" />
+				</svg>
+			</button>
+
+			<button class="window-control window-control-close" @click="maybeClose">
+				<svg class="svg-icon-fill">
+					<use xlink:href="img/sprite.svg#window-control_close" />
+				</svg>
+			</button>
+		</div>
+	</header>
+
+	<carousel
+		class="games-navigation"
+		:index="selectedGameIndex"
+		:slidesperview="4"
+		:slidespergroup="1"
+		:breakpoints="{
+			740 : { slidesPerView : 1 },
+			950 : { slidesPerView : 3 }
+		}"
+		ref="gamesCarousel"
+	>
+		<slide
+			v-for="game in games"
+			:key="game.name"
+		>
+			<game
+				:game="game"
+				:selected="game.name === selectedGame"
+				@select="selectGame"
+				@voiceclick="settingsShown = !settingsShown"
+			></game>
+		</slide>
+	</carousel>
+
+	<transition name="slide">
+	<div class="menu-expanded-wrapper" v-if="vpTab">
+		<transition name="slide">
+		<div class="menu-expanded menu-expanded-playlist" v-if="editRandom && vpTab === 'random'">
+			<label class="menu-expanded-title-wrapper">
+				<editable
+					class="menu-expanded-title"
+					:content="editRandom.title"
+					@update="editRandom.title = $event"
+					ref="editRandomTitle"
+				></editable>
+				<i class="menu-expanded-title-edit" @click="$refs.editRandomTitle.select()">
+					<svg class="svg-icon-fill">
+						<use xlink:href="img/sprite.svg#edit-text" />
+					</svg>
+				</i>
+			</label>
+
+			<div class="menu-expanded-main">
+				<carousel
+					class="playlist-carousel-wrapper"
+					:slidespergroup="3"
+					:setwrappersize="false"
+					ref="editRandomCarousel"
+				>
+					<slide
+						v-for="(slot, slotName) in editRandom.slots"
+						:key="slotName"
+					>
+						<voicepackslot
+							:vp="slot"
+							:id="'random.'+ slotName"
+							@preview="previewVP"
+							@dropped="droppedVP"
+							@clear="clearVPslot"
+						></voicepackslot>
+					</slide>
+				</carousel>
+
+				<aside class="menu-expanded-aside">
+					<div class="menu-expanded-aside-text">
+						<p class="menu-expanded-aside-title">Create a shuffled pack</p>
+						<p class="menu-expanded-aside-subtitle">Drag and drop voice packs to the empty slot. We’ll shuffle them for you.</p>
+					</div>
+
+					<footer class="menu-expanded-aside-footer">
+						<button class="btn btn-text" @click="vpTab = null">Cancel</button>
+						<button
+							class="btn"
+							:disabled="!editRandom._valid"
+							@click="saveVP('random')"
+						>Save</button>
+					</footer>
+				</aside>
+			</div>
+		</div>
+		</transition>
+
+		<transition name="slide-alt">
+		<div class="menu-expanded menu-expanded-custom-pack" v-if="editCustom && vpTab === 'custom'">
+			<label class="menu-expanded-title-wrapper">
+				<editable
+					class="menu-expanded-title"
+					:content="editCustom.title"
+					@update="editCustom.title = $event"
+					ref="editCustomTitle"
+				></editable>
+				<i class="menu-expanded-title-edit" @click="$refs.editCustomTitle.select()">
+					<svg class="svg-icon-fill">
+						<use xlink:href="img/sprite.svg#edit-text" />
+					</svg>
+				</i>
+			</label>
+
+			<div class="menu-expanded-main">
+				<carousel
+					class="playlist-carousel-wrapper"
+					:slidespergroup="3"
+					:setwrappersize="false"
+				>
+					<slide
+						v-for="(slot, slotName) in editCustom.slots"
+						:key="slotName"
+					>
+						<voicepackslot
+							:vp="slot.vp"
+							:title="slot.title"
+							:event="slot.event"
+							:id="'custom.'+ slotName"
+							@preview="previewVP"
+							@dropped="droppedVP"
+							@clear="clearVPslot"
+						></voicepackslot>
+					</slide>
+				</carousel>
+
+				<aside class="menu-expanded-aside">
+					<div class="menu-expanded-aside-text">
+						<p class="menu-expanded-aside-title">Create a custom pack</p>
+						<p class="menu-expanded-aside-subtitle">Drag and drop voice packs to the events slots. Create your own mix.</p>
+					</div>
+
+					<footer class="menu-expanded-aside-footer">
+						<button class="btn btn-text" @click="vpTab = null">Cancel</button>
+						<button
+							class="btn"
+							:disabled="!editCustom._valid"
+							@click="saveVP('custom')"
+						>Save</button>
+					</footer>
+				</aside>
+			</div>
+		</div>
+		</transition>
+	</div>
+	</transition>
+
+	<div class="menu">
+		<label class="search-section">
+			<input tabindex="0" class="search-bar" type="search" :placeholder="'Search for '+ selectedGameTitle +' voice packs'" v-model="search">
+			<i>
+				<svg class="svg-icon-fill">
+					<use xlink:href="img/sprite.svg#search" />
+				</svg>
+			</i>
+		</label>
+
+		<div class="menu-actions">
+			<button class="btn" @click="vpTab = 'random'" :class="{selected : vpTab === 'random'}">
+				<i>
+					<svg class="svg-icon-fill">
+						<use xlink:href="img/sprite.svg#add+" />
+					</svg>
+				</i>
+				Shuffled pack
+			</button>
+
+			<button class="btn" @click="vpTab = 'custom'" :class="{selected : vpTab === 'custom'}">
+				<i>
+					<svg class="svg-icon-fill">
+						<use xlink:href="img/sprite.svg#add+" />
+					</svg>
+				</i>
+				Custom pack
+			</button>
+
+			<button class="btn" @click="redeemShown = true" :class="{selected : vpTab === 'redeem'}">Redeem code</button>
+		</div>
+	</div>
+
+	<scrollable class="voice-catalog">
+		<section
+			class="voice-section"
+			v-for="(section, sectionName) in catalog"
+			v-if="section.vps.length > 0"
+			:key="sectionName"
+		>
+			<h3 class="voice-section-title">{{section.title}}</h3>
+			<div class="voice-section-packs">
+				<voicepack
+					v-for="vp in section.vps"
+					:key="vp.id"
+					:vp="vp"
+					:draggable="(vpTabEditing && vp.installed && vp.type === 'general')"
+					:inactive="(vpTabEditing && ! vp.installed)"
+					@opensite="openVPSite"
+					@download="downloadVP"
+					@preview="previewVP"
+					@select="selectVP"
+					@deselect="deselectVP"
+					@edit="editVP"
+					@remove="removeVP"
+				></voicepack>
+			</div>
+		</section>
+	</scrollable>
+
+	<transition name="modal-trans">
+		<div
+			class="modal"
+			v-if="showModal"
+			@click="closeModal"
+		>
+			<div
+				class="modal-window notification"
+				v-if="closing"
+				@click.stop
+			>
+				<button class="window-control window-control-close" @click="closing = false">
+					<svg class="svg-icon-fill">
+						<use xlink:href="img/sprite.svg#window-control_close" />
+					</svg>
+				</button>
+
+				<h2 class="notification-title">Exit Killer Voices?</h2>
+				<div class="notification-text">
+					<p>You will no longer have cool announcer voices.</p>
+					<p>Minimize the app if you just want to hide it</p>
+				</div>
+				<div class="notification-footer">
+					<button class="btn btn-text" @click="close">Exit</button>
+					<button class="btn" @click="minimize">Minimize</button>
+				</div>
+			</div>
+
+			<div
+				class="modal-window settings"
+				v-if="settingsShown"
+				@click.stop
+			>
+				<button class="window-control window-control-close" @click="settingsShown = false">
+					<svg class="svg-icon-fill">
+						<use xlink:href="img/sprite.svg#window-control_close" />
+					</svg>
+				</button>
+
+				<header class="settings-header">
+					<div>Show/Hide hotkey <a class="text-link" href="#" @click.prevent="editHotkey">{{hotkey}}</a></div>
+					<div>
+						Enable Killer Voices for the following games<br>
+						and set the announcer volume
+					</div>
+				</header>
+
+				<main class="settings-main">
+					<div
+						class="game-settings"
+						:class="{ disabled : !game.enabled }"
+						v-for="game in settings"
+					>
+						<img :src="'img/games/'+ game.name +'-settings.png'" class="game-icon" alt="">
+						<range
+							class="game-volume-range"
+							v-model="game.volume"
+							:step="10"
+							:orientation="'vertical'"
+							:direction="'rtl'"
+							@input="setVolume(game.name, game.volume)"
+						></range>
+						<button
+							class="btn-on-off"
+							:class="{ on : game.enabled }"
+							@click="toggleEnabled(game.name)"
+						>
+							<svg class="svg-icon-stroke" v-if="game.enabled">
+								<use xlink:href="img/sprite.svg#settings-volume-on" />
+							</svg>
+							<svg class="svg-icon-stroke" v-else>
+								<use xlink:href="img/sprite.svg#settings-volume-off" />
+							</svg>
+						</button>
+					</div>
+				</main>
+			</div>
+
+			<div
+				class="modal-window redeem-window"
+				v-if="redeemShown"
+				@click.stop
+			>
+				<button class="window-control window-control-close" @click="redeemShown = false">
+					<svg class="svg-icon-fill">
+						<use xlink:href="img/sprite.svg#window-control_close" />
+					</svg>
+				</button>
+
+				<svg class="redeem-box">
+					<use xlink:href="img/sprite.svg#redeem-box" />
+				</svg>
+
+				<h2 class="notification-title">Enter your voice pack code</h2>
+
+				<div class="input-text-wrapper input-redeem-section">
+					<input
+						class="input-text"
+						type="text"
+						tabindex="0"
+						spellcheck="false"
+						placeholder="XXX - XXX - XXX"
+						v-model="redeemCode"
+					>
+				</div>
+
+				<p class="redeem-error" v-if="redeemError">{{redeemError}}</p>
+
+				<div class="notification-footer">
+					<button class="btn" @click="redeemWithCode">Redeem</button>
+				</div>
+			</div>
+		</div>
+	</transition>
+</div>
+
+<script data-main="js/main" src="js/libs/require.js"></script>
+
+</body>
+</html>

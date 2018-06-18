@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" class="hidden">
+<head>
+	<meta charset="UTF-8">
+
+	<title>Killer Voices</title>
+
+	<link rel="stylesheet" href="css/index.css" />
+</head>
+<body class="window-notice-ingame">
+
+<div
+	id="window-notice"
+	class="content"
+	@mousemove="hover = true"
+	@mouseenter="hover = true"
+	@mouseleave="hover = false"
+	>
+	<header class="app-header" @mousedown="drag">
+		<svg class="header-logo">
+			<use xlink:href="img/sprite.svg#header-logo" />
+		</svg>
+
+		<div class="window-controls-group" @mousedown.stop>
+			<button class="window-control window-control-close" @click="close">
+				<svg class="svg-icon-fill">
+					<use xlink:href="img/sprite.svg#window-control_close" />
+				</svg>
+			</button>
+		</div>
+	</header>
+
+	<div class="notice-ingame">
+		<div
+			v-if="selectedVP.vpImages"
+			class="notice-ingame-images"
+		>
+			<div
+				v-for="id in selectedVP.vpImages"
+				:style="{'background-image': 'url(./img/voice-packs/'+ id +'.webp)'}"
+			></div>
+		</div>
+		<div
+			v-else
+			class="notice-ingame-image"
+			:style="{'background-image': 'url(./img/voice-packs/'+ selectedVP.id +'.webp)'}"
+		></div>
+
+		<div class="notice-ingame-text">
+			<h4>Selected voice pack</h4>
+			<h3>{{selectedVP.shortTitle || selectedVP.title}}</h3>
+			<button class="btn" @click.prevent="switchVP">Switch pack</button>
+		</div>
+	</div>
+
+	<div class="notice-ad" ref="ad" v-if="!noAds"></div>
+</div>
+
+<script data-main="js/notice" src="js/libs/require.js"></script>
+
+</body>
+</html>

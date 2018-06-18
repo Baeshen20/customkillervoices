@@ -1,0 +1,144 @@
+<!-- svg icons -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
+<symbol id="window-control_close" viewBox="0 0 30 30">
+	<path d="M15.71,15l4.15-4.15a.5.5,0,0,0-.71-.71L15,14.29l-4.15-4.15a.5.5,0,1,0-.71.71L14.29,15l-4.15,4.15a.5.5,0,1,0,.71.71L15,15.71l4.15,4.15a.5.5,0,1,0,.71-.71Z"/>
+</symbol>
+
+<symbol id="window-control_maximize" viewBox="0 0 30 30">
+	<path d="M20,20H10V10H20Zm-9-1h8V11H11Z"/>
+</symbol>
+
+<symbol id="window-control_restore" viewBox="0 0 30 30">
+	<path d="M9,21h8V13H9Zm1-7h6v6H10Zm3-5v3h1V10h6v6H18v1h3V9Z"/>
+</symbol>
+
+<symbol id="window-control_minimize" viewBox="0 0 30 30">
+	<rect x="10" y="19" width="10" height="1"/>
+</symbol>
+
+<symbol id="window-control_support" viewBox="0 0 30 30">
+	<rect x="13.5" y="19" width="2" height="2"/>
+	<path d="M16.5,9H12v1h4.5A1.5,1.5,0,0,1,18,11.5v1A1.5,1.5,0,0,1,16.5,14H14v3h1V15h1.5A2.5,2.5,0,0,0,19,12.5v-1A2.5,2.5,0,0,0,16.5,9Z"/>
+</symbol>
+
+<symbol id="window-control_settings" viewBox="0 0 30 30">
+	<path d="M22,16.3V13.7H19.81a4.94,4.94,0,0,0-.49-1.18L20.87,11,19,9.13l-1.55,1.55a5,5,0,0,0-1.18-.49V8H13.7v2.19a5,5,0,0,0-1.18.49L11,9.13,9.13,11l1.55,1.55a5,5,0,0,0-.49,1.18H8v2.6h2.19a5,5,0,0,0,.49,1.18L9.13,19,11,20.87l1.55-1.55a4.94,4.94,0,0,0,1.18.49V22h2.6V19.81a4.94,4.94,0,0,0,1.18-.49L19,20.87,20.87,19l-1.55-1.55a4.94,4.94,0,0,0,.49-1.18Zm-7,1.45A2.75,2.75,0,1,1,17.75,15,2.75,2.75,0,0,1,15,17.75Z"/>
+</symbol>
+
+<symbol id="search" viewBox="0 0 30 30">
+	<path d="M17,8c-2.8,0-5,2.2-5,5c0,1.2,0.4,2.3,1.1,3.1l-4,4c-0.2,0.2-0.2,0.5,0,0.7C9.2,21,9.4,21,9.5,21
+	s0.3,0,0.4-0.1l4-4c0.9,0.7,1.9,1.1,3.1,1.1c2.8,0,5-2.2,5-5S19.8,8,17,8z M17,17c-1,0-1.8-0.4-2.5-0.9c-0.2-0.2-0.4-0.4-0.6-0.6
+	C13.4,14.8,13,14,13,13c0-2.2,1.8-4,4-4s4,1.8,4,4S19.2,17,17,17z"/>
+</symbol>
+
+<symbol id="add+" viewBox="0 0 30 30">
+	<rect x="14" y="9" width="1" height="11"/>
+	<rect x="9" y="14" width="11" height="1"/>
+</symbol>
+
+<symbol id="download" viewBox="0 0 30 30">
+	<path d="M23,13.34a4.47,4.47,0,0,0-8-2.6A4.47,4.47,0,0,0,8.2,13.26,3.5,3.5,0,0,0,9.5,20H12V19H9.5a2.5,2.5,0,0,1-.93-4.82L9,14l.14-.47a3.47,3.47,0,0,1,5.26-2l.77.51.57-.73a3.47,3.47,0,0,1,6.23,2L22,14l.55.26A2.48,2.48,0,0,1,24,16.5,2.5,2.5,0,0,1,21.5,19H19v1h2.5A3.49,3.49,0,0,0,23,13.34Zm-3.71,9.71L16,24.66V18H15v6.66l-3.28-1.61a.5.5,0,0,0-.67.22.49.49,0,0,0,.22.66L15.5,26l4.22-2.07a.49.49,0,0,0,.22-.66A.5.5,0,0,0,19.28,23.05Z"/>
+</symbol>
+
+<symbol id="voice-play-icon" viewBox="0 0 60 60">
+	<circle cx="30" cy="30" r="29" fill="none" stroke="currentcolor" vector-effect="non-scaling-stroke" stroke-width="2"/>
+	<polygon points="23 15 23 45 45 30 23 15"/>
+</symbol>
+
+<symbol id="nav-arrow" viewBox="0 0 20 50">
+	<polyline points=" 11,32 7,25 11,18"/>
+</symbol>
+
+<symbol id="dashed-border" viewBox="-100 -100 200 200" preserveAspectRatio="none">
+	<rect x="-100" y="-100" width="200" height="200" vector-effect="non-scaling-stroke"></rect>
+</symbol>
+
+<symbol id="big-add+" viewBox="0 0 40 40">
+	<rect x="17" width="6" height="40"/>
+  	<rect y="17" width="40" height="6"/>
+</symbol>
+
+<symbol id="trash-body" viewBox="0 0 30 30">
+	<path d="M10,10V22H20V10Zm3,11H11V12h2Zm3,0H14V12h2Zm3,0H17V12h2Z"/>
+</symbol>
+
+<symbol id="trash-lid" viewBox="0 0 30 30">
+	<polygon points="18 7.01 18 6.01 12 6.01 12 7.01 9 7.01 9 9.01 21 9.01 21 7.01 18 7.01" />
+</symbol>
+
+<symbol id="trash" viewBox="0 0 30 30">
+	<path d="M10,10V22H20V10Zm3,11H11V12h2Zm3,0H14V12h2Zm3,0H17V12h2Z"/>
+	<polygon points="18 7.01 18 6.01 12 6.01 12 7.01 9 7.01 9 9.01 21 9.01 21 7.01 18 7.01" />
+</symbol>
+
+<symbol id="edit-text" viewBox="0 0 30 30">
+	<path d="M14.54,9l-5,8.58,3.49,2L18,11ZM9.23,22l3.25-1.58L9,18.44Z"/>
+	<rect x="15" y="20" width="6" height="2"/>
+</symbol>
+
+<symbol id="header-logo" viewBox="0 0 180 40">
+	<polyline points="46 30 42 30 46 30" fill="#005677"/>
+	<polyline points="29 10 25 10 12 30 16 30 29 10" fill="#65211f"/>
+	<polyline points="36.36 17 32.36 17 24 30 28 30 36.36 17" fill="#841f1b"/>
+	<polyline points="32.68 13.5 28.68 13.5 18 30 22 30 32.68 13.5" fill="#75201d"/>
+	<polyline points="40.05 20.5 36.05 20.5 30 30 34 30 40.05 20.5" fill="#941d19"/>
+	<polyline points="43.75 24 39.75 24 36 30 40 30 43.75 24" fill="#a31c17"/>
+	<polyline points="47.5 27.5 43.5 27.5 42 30 46 30 47.5 27.5" fill="#b31a15"/>
+	<path d="M62.86,20.16l4.88-5.52h1.53l-3.46,4,3.57,5.85H67.83l-3-4.9-2,2.26v2.64H61.49V14.64h1.37Z" fill="#b6b6b6"/>
+	<path d="M72.6,24.49H71.23V14.64H72.6Z" fill="#b6b6b6"/>
+	<path d="M77,23.46h5.17v1H75.59V14.64H77Z" fill="#b6b6b6"/>
+	<path d="M85.27,23.46h5.17v1H83.9V14.64h1.37Z" fill="#b6b6b6"/>
+	<path d="M93.59,20v3.49h5.53v1h-6.9V14.64H99v1H93.59v3.27h4.93v1Z" fill="#b6b6b6"/>
+	<path d="M107.58,24.49l-2.05-3.9-.49,0h-2.2v3.88h-1.37V14.64h3.64c2.3,0,4,1.15,4,2.94a2.88,2.88,0,0,1-2.2,2.74l2.18,4.17Zm-4.74-8.85v4H105c1.66,0,2.68-.81,2.68-2s-1-1.95-2.68-1.95Z" fill="#b6b6b6"/>
+	<path d="M122.08,14.64l-3.42,9.85h-1.4l-3.44-9.85h1.46l2.7,8,2.72-8Z" fill="#b6b6b6"/>
+	<path d="M131.28,21.49c0,1.93-1.58,3.15-3.89,3.15s-3.89-1.21-3.89-3.15V17.64c0-1.93,1.51-3.15,3.89-3.15s3.89,1.21,3.89,3.15Zm-6.41,0c0,1.2.92,2.08,2.52,2.08s2.5-.88,2.5-2.08V17.61c0-1.2-.9-2.08-2.5-2.08s-2.52.88-2.52,2.08Z" fill="#b6b6b6"/>
+	<path d="M135.31,24.49h-1.37V14.64h1.37Z" fill="#b6b6b6"/>
+	<path d="M145.66,21.34v.32c0,1.84-1.55,3-3.82,3S138,23.43,138,21.49V17.64c0-1.93,1.51-3.15,3.87-3.15s3.82,1.14,3.82,3v.23h-1.31v-.26c0-1.11-.9-1.92-2.5-1.92s-2.5.88-2.5,2.08v3.91c0,1.2.92,2.08,2.5,2.08s2.5-.81,2.5-1.92v-.34Z" fill="#b6b6b6"/>
+	<path d="M149.5,20v3.49H155v1h-6.9V14.64h6.75v1H149.5v3.27h4.93v1Z" fill="#b6b6b6"/>
+	<path d="M162.83,17.44V17.2c0-1-.85-1.76-2.32-1.76s-2.29.61-2.29,1.48c0,.69.58,1.18,1.35,1.44l1.94.66c1.35.45,2.86,1,2.86,2.74s-1.57,2.86-3.85,2.86-3.87-1.06-3.87-2.77v-.24H158v.3c0,1,.92,1.74,2.5,1.74s2.52-.75,2.52-1.75-.92-1.48-2-1.84l-1.67-.57c-1.33-.44-2.43-1.16-2.43-2.47,0-1.48,1.44-2.53,3.6-2.53s3.66,1.06,3.66,2.77v.18Z" fill="#b6b6b6"/>
+</symbol>
+
+<symbol id="tooltip-arrow" viewBox="0 0 24 6">
+	<polygon points="24,6 0,6 12,0 "/>
+</symbol>
+
+<symbol id="redeem-box" viewBox="0 0 100 90">
+	<polygon points="48 90 48 40 0 17 0 60 48 90" fill="#333"/>
+	<polygon points="0 17 48 40 100 20 50 0 0 17" fill="#4f4f4f"/>
+	<polyline points="48 90 48 40 100 20 100 63 48 90" fill="#272727"/>
+	<polyline points="90.07 56.14 86.97 57.74 90.07 56.14" fill="#136a8a"/>
+	<polyline points="75.16 43.68 72.07 45.12 62 70.65 65.1 69.05 75.16 43.68" fill="#65211f"/>
+	<polyline points="81.56 47.66 78.46 49.15 71.99 65.48 75.08 63.88 81.56 47.66" fill="#841f1b"/>
+	<polyline points="78.36 45.7 75.26 47.16 66.99 68.07 70.09 66.47 78.36 45.7" fill="#75201d"/>
+	<polyline points="84.76 49.56 81.66 51.08 76.98 62.91 80.08 61.3 84.76 49.56" fill="#941d19"/>
+	<polyline points="87.98 51.38 84.88 52.93 81.98 60.32 85.07 58.72 87.98 51.38" fill="#a31c17"/>
+	<polyline points="91.23 53.13 88.13 54.71 86.97 57.74 90.07 56.14 91.23 53.13" fill="#b31a15"/>
+	<polygon points="67.88 7.15 18 25.63 27 29.94 78.22 11.29 67.88 7.15" fill="#5b5b5b"/>
+  	<polygon points="18 25.63 18 36 27 41 27 29.94 18 25.63" fill="#4f4f4f"/>
+</symbol>
+
+<symbol id="volume-mute" viewBox="0 0 30 30">
+	<line x1="19.5" y1="14.5" x2="23.5" y2="18.5" stroke-linecap="round"/>
+	<line x1="19.5" y1="18.5" x2="23.5" y2="14.5" stroke-linecap="round"/>
+	<polygon points="13.5 10.5 10.5 13.5 6.5 13.5 5.5 14.5 5.5 18.5 6.5 19.5 10.5 19.5 13.5 22.5 14.5 22 14.5 11 13.5 10.5" stroke-linejoin="round"/>
+</symbol>
+
+<symbol id="settings-volume-on" viewBox="0 0 40 40">
+	<polygon points="20.5 9 15.5 15 8.5 15 6.5 17 6.5 23 8.5 25 15.5 25 20.5 31 22.5 30 22.5 10 20.5 9" stroke-linejoin="round"/>
+	<line x1="30.5" y1="16" x2="30.5" y2="24"/>
+	<line x1="34.5" y1="13" x2="34.5" y2="27"/>
+</symbol>
+
+<symbol id="settings-volume-off" viewBox="0 0 40 40">
+	<polygon points="20.5 9 15.5 15 8.5 15 6.5 17 6.5 23 8.5 25 15.5 25 20.5 31 22.5 30 22.5 10 20.5 9" stroke-linejoin="round"/>
+	<line x1="28.5" y1="16" x2="36.5" y2="24" stroke-linecap="round"/>
+	<line x1="28.5" y1="24" x2="36.5" y2="16" stroke-linecap="round"/>
+</symbol>
+
+<symbol id="download-large" viewBox="0 0 70 70">
+	<polyline points="50 57 35 65 20 57" stroke-linecap="round" stroke-width="2" vector-effect="non-scaling-stroke"/>
+	<line x1="35" y1="39" x2="35" y2="64" stroke-linecap="round" stroke-width="2" vector-effect="non-scaling-stroke"/>
+	<path d="M48,46h8a12,12,0,0,0,6-22.39,16,16,0,0,0-29.14-8.7A15,15,0,0,0,9.6,22.85,12,12,0,0,0,14,46h8" stroke-width="2" vector-effect="non-scaling-stroke"/>
+</symbol>
+</svg>
