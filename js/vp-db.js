@@ -9,9 +9,9 @@ define(() => [
 
 	Fortnite: {
 		kill: ["Test"],
-		knockout: ["How 'Bout Some Help Here"],
-		death: ["Test"],
-		knockedout: ["Test"],
+		knockout: ["Test"],
+		death: ["This Computers Doin Some Weird Shit Dude"],
+		knockedout: ["How 'Bout Some Help Here","Get These Fuckin' Things Off Me","Fuckin' Help Me"],
 		match_start: ["Test"],
 		match_end: ["Test"],
 	}
