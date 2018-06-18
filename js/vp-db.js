@@ -8,12 +8,12 @@ define(() => [
 	acquiredBy	: "preinstall",
 
 	Fortnite: {
-		kill: ["Test"],
+		kill: ["Aw Thank You","Thank You Right On Time"],
 		knockout: ["Test"],
-		death: ["This Computers Doin Some Weird Shit Dude"],
-		knockedout: ["How 'Bout Some Help Here","Get These Fuckin' Things Off Me","Fuckin' Help Me"],
-		match_start: ["Test"],
-		match_end: ["Test"],
+		death: ["This Computers Doin Some Weird Shit Dude","Hey Forget This Man Lets Just Chill And Smoke Some Vapes","Can Somebody Fix This Piece Of Shit"],
+		knockedout: ["How 'Bout Some Help Here","Get These Fuckin' Things Off Me","Fuckin' Help Me","Can't You See I'm Bleeding","I Need Help","I'm Real Fucked Up Here","I Need Help 2","I Guess They Brought This On Theirselves","Get These Fuckin Things Off Me",],
+		match_start: ["Time To Get Sweaty"],
+		match_end: ["Totally Awesome Man We Kicked Ass"],
 	}
 },
 // Preinstalled packs
