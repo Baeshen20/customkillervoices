@@ -1,9 +1,9 @@
 // Custom Voice Pack Name by Author Name (Sound Credits by Creator Name)
 {
-	id			: "VoicePacks Folder Name",
+	id			: "Custom VoicePacks Folder Name",
 	origin		: "app",
-	title		: "Unique Long Title",
-	shortTitle	: "Normal Title",
+	title		: "Custom Unique Long Title",
+	shortTitle	: "Custom Normal Title",
 	acquiredBy	: "preinstall",
 
 	Fortnite: {
