@@ -29,7 +29,7 @@ define(() => [
 
 	CSGO: {
 		kill: ["YouAreTerminated","You'reFired","DeepTrouble","FuckYouAssWhole","Hahaha3","HastaLaVista","NoSequelForYou","ChillOutDickWad","ChillOutShort","CloneFuckYourself","Cool","Don'tBullShitMe","DropDeadIDon'tDoRequest","FuckYou","FuckYou2","FuckYouAssWhole2","GreenBarretForBreakfast","Hahaha1","Hahaha2","Hahaha3","HeMolestedHer","IamThePartyPoopah","IfItBleeds","LamentationOfTheirWomen","Nipples","NoProblemo","PavementWasHisEvemy","PutThatCookieDown","Rubber baby buggy bumpers!","StickAround","Stop Whining","StopIt'sJustAScratch","TalkToTheHand","UglyMotherFucker","YouAreGonaKillThatGuyIamATerminator"],
-		death: ["WTF","YouSonOfABitch","ToBeOrNotToBe","DoItNowKillMe","I'llBeBack","INeedAVacation","DoItNow4","DoitNow2","GrantMeRevengeTheHellWithYou","DoItNow5"],
+		death: ["YouSonOfABitch","ToBeOrNotToBe","DoItNowKillMe","I'llBeBack","INeedAVacation","DoItNow4","DoitNow2","GrantMeRevengeTheHellWithYou","DoItNow5"],
 		headshot: ["Hahaha1","Hahaha3","WhosYourDaddy"],
 		round_start: ["BornToBeBad","IamBack","It'sShowTime"],
 		match_start: ["BornToBeBad","It'sShowTime"],
